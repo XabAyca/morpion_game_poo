@@ -6,6 +6,7 @@ class Game
     @board = Board.new 
   end
   
+  # Données des joueurs et création 
   def players()
     2.times do |i|
       puts "---------------------------------------"
@@ -21,7 +22,10 @@ class Game
     end
   end
 
+  # Système de vérifications
   def choose_case(player)
+    system("clear")
+    display_score()
     @board.play_turn(player)
     @board.game_nil
     if @board.winner == true
@@ -37,6 +41,7 @@ class Game
     end
   end
 
+  # Boucle de jeux
   def game_round
     while @board.winner == false 
       choose_case(@player_array[0])
@@ -75,6 +80,13 @@ class Game
     puts "         The Morpion Game         "
     puts "---------------------------------------"+"\033[0m"
     puts "created by Antho Pascaline & Xabi  🤟"
+  end
+
+
+  def display_score
+    puts ''
+    puts "\033[1;32m SCORE   #{@player_array[0].score}  #{@player_array[0].player} <-> #{@player_array[1].player}  #{@player_array[1].score}   SCORE"+"\033[0m"
+    puts ""
   end
 
   def perform_restart

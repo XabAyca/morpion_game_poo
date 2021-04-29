@@ -7,12 +7,7 @@ class Player
     @score  = 0
   end
 
-  def identity
-    puts "Salut, #{@player} bienvenue dans l'arêne." 
-    puts "Tu as choisi le pion #{@pawn}"
-    puts ""
-  end
-
+  #Pour compter le nombre de victoire
   def win_count
     @score = @score + 1
   end 
